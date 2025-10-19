@@ -1,0 +1,8 @@
+{
+  "rules": {
+    "cache": {
+      ".read": true,
+      ".write": false
+    }
+  }
+}
