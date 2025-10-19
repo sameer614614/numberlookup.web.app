@@ -61,7 +61,7 @@ async function loadFromLocal(): Promise<PostPayload[]> {
   let entries: string[] = [];
   try {
     entries = await fs.readdir(localDir);
-  } catch (_error) {
+  } catch (error) {
     return [];
   }
 
@@ -82,7 +82,7 @@ export async function getAllPosts(config: AppConfig): Promise<PostSummary[]> {
     const posts = await loadFromStorage(config);
     if (posts.length) {
       return posts
-        .map(({ content: _content, ...summary }) => summary)
+        .map(({ content, ...summary }) => summary)
         .sort((a, b) => (a.date && b.date ? b.date.localeCompare(a.date) : 0));
     }
   } catch (error) {
@@ -91,7 +91,7 @@ export async function getAllPosts(config: AppConfig): Promise<PostSummary[]> {
 
   const fallback = await loadFromLocal();
   return fallback
-    .map(({ content: _content, ...summary }) => summary)
+    .map(({ content, ...summary }) => summary)
     .sort((a, b) => (a.date && b.date ? b.date.localeCompare(a.date) : 0));
 }
 

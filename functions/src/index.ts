@@ -67,7 +67,7 @@ app.get('/healthz', async (_req, res) => {
   let cacheStatus: 'ok' | 'unavailable' = 'ok';
   try {
     await admin.database().ref('.info/serverTimeOffset').get();
-  } catch (_error) {
+  } catch (error) {
     cacheStatus = 'unavailable';
   }
 
