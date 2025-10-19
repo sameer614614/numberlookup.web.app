@@ -1,6 +1,6 @@
-# numberlookup on Firebase
+# CallerID on Firebase
 
-This repository contains the Firebase-first rewrite of the numberlookup platform. It mirrors the public
+This repository contains the Firebase-first rewrite of the CallerID platform. It mirrors the public
 features of the original VPS deployment—phone number intelligence and a Markdown-powered blog—while
 replacing the infrastructure with Firebase Hosting, Cloud Functions, Firestore, the Realtime Database,
 and Cloud Storage.
@@ -97,7 +97,7 @@ curl "http://localhost:5001/<project-id>/us-central1/api/lookup?number=%2B141555
 ```
 
 The response mirrors the legacy API schema with `number`, `carrier`, `country`, `location`, `reputation`,
-and `normalized` fields plus the list of `sources` that contributed to the payload.
+and `normalized` fields.
 
 ## Next steps
 
